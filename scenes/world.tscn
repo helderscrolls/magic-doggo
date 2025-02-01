@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cpecp3qi5iy6c"]
+[gd_scene load_steps=14 format=4 uid="uid://cpecp3qi5iy6c"]
 
 [ext_resource type="PackedScene" uid="uid://ctls2l24ivrad" path="res://scenes/player.tscn" id="1_kaimq"]
 [ext_resource type="Texture2D" uid="uid://c58vyqyv1oxyo" path="res://assets/sprites/TilesetFloor.png" id="2_gbiac"]
@@ -855,17 +855,22 @@ texture = ExtResource("2_ogoc5")
 1:1/0 = 0
 0:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h3equ"]
+[sub_resource type="TileSet" id="TileSet_hwbjr"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_48vih")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oh0lm"]
 texture = ExtResource("3_hgiak")
 0:0/animation_frame_0/duration = 0.4
 0:0/animation_frame_1/duration = 0.4
 0:0/animation_frame_2/duration = 0.4
 0:0/animation_frame_3/duration = 0.4
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.03125, -5.70312, -4, 5.85938, -4, 8, 0.0625, 8, 8, -8, 8)
 
-[sub_resource type="TileSet" id="TileSet_hwbjr"]
-sources/0 = SubResource("TileSetAtlasSource_48vih")
-sources/1 = SubResource("TileSetAtlasSource_h3equ")
+[sub_resource type="TileSet" id="TileSet_2k358"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_oh0lm")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cnlg2"]
 texture = ExtResource("2_ogoc5")
@@ -1252,9 +1257,21 @@ texture = ExtResource("2_ogoc5")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(-8, 8)
 0:0/0/y_sort_origin = 7
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1.89062, 7.0625, -4.85938, 6, -5.78125, 4.9375, -5.8125, 3.1875, -4.92188, 0, 20.6406, 0.0625, 21.8906, 3.25, 21.9844, 5.0625, 20.9219, 6, 18.0156, 7)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t6trk"]
+texture = ExtResource("3_hgiak")
+0:0/animation_frame_0/duration = 0.4
+0:0/animation_frame_1/duration = 0.4
+0:0/animation_frame_2/duration = 0.4
+0:0/animation_frame_3/duration = 0.4
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.03125, -5.82812, -4, 5.54688, -4.03125, 8, 0.03125, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_i7rux"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_cnlg2")
+sources/1 = SubResource("TileSetAtlasSource_t6trk")
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -1267,8 +1284,14 @@ tile_map_data = PackedByteArray("AAAAAAAAAAALAAwAAAAAAAEAAAANAAwAAAAAAAIAAAALAAw
 tile_set = SubResource("TileSet_mhfes")
 
 [node name="Foliage" type="TileMapLayer" parent="TileMaps"]
-tile_map_data = PackedByteArray("AAACAAAAAAABAAsAAAAEAAcAAAABAAsAAAAIAAQAAAABAAsAAAALAAcAAAABAAsAAAAIAAIAAQAAAAAAAAAOAAMAAQAAAAAAAAAHAAcAAQAAAAAAAAACAAUAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAACAAAAAAABAAsAAAAEAAcAAAABAAsAAAAIAAQAAAABAAsAAAALAAcAAAABAAsAAAA=")
 tile_set = SubResource("TileSet_hwbjr")
+
+[node name="Animated Foliage" type="TileMapLayer" parent="TileMaps"]
+z_index = 1
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAHAAcAAAAAAAAAAAACAAUAAAAAAAAAAAAIAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_2k358")
 
 [node name="Trees" type="TileMapLayer" parent="TileMaps"]
 z_index = 1
