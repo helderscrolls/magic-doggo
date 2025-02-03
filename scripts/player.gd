@@ -10,6 +10,8 @@ signal healthChanged
 @export var maxHealth = 3
 @onready var currentHealth: int = maxHealth
 
+@export var knockbackPower: int = 500
+
 func handleInput():
 	var moveDirection = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = moveDirection * speed
@@ -34,7 +36,6 @@ func handleCollision():
 	for collisions in get_slide_collision_count():
 		var collision = get_slide_collision(collisions)
 		var collider = collision.get_collider()
-		print_debug(collider.name)	
 
 func _physics_process(delta: float) -> void:
 	handleInput()
@@ -50,3 +51,13 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 			currentHealth = maxHealth
 			
 		healthChanged.emit(currentHealth)
+		knockback(area.get_parent().velocity)
+
+func knockback(enemyVelocity: Vector2):
+	var knockbackDirection = (enemyVelocity - velocity).normalized() * knockbackPower
+	velocity = knockbackDirection
+	print_debug('VELOCITY: ', velocity)
+	print_debug('POS BEFORE: ', position)
+	
+	move_and_slide()
+	print_debug('POS AFTER: ', position)
