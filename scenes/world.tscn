@@ -1933,6 +1933,7 @@ tile_set = SubResource("TileSet_138wf")
 
 [node name="Player" parent="." instance=ExtResource("1_kaimq")]
 position = Vector2(117, 74)
+speed = 50
 
 [node name="Follow Camera" type="Camera2D" parent="Player" node_paths=PackedStringArray("groundTileMapLayer")]
 limit_left = 0
