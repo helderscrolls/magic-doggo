@@ -1507,7 +1507,8 @@ texture = ExtResource("3_hgiak")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.03125, -5.82812, -4, 5.54688, -4.03125, 8, 0.03125, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_i7rux"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_cnlg2")
 sources/1 = SubResource("TileSetAtlasSource_t6trk")
 
@@ -1899,7 +1900,8 @@ texture = ExtResource("2_ogoc5")
 11:20/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_138wf"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/1 = SubResource("TileSetAtlasSource_3f5rb")
 
 [node name="World" type="Node2D"]
@@ -1945,6 +1947,7 @@ script = ExtResource("5_vifo5")
 groundTileMapLayer = NodePath("../../TileMaps/Ground")
 
 [node name="Slimes" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Slime" parent="Slimes" node_paths=PackedStringArray("endPoint") instance=ExtResource("6_km1kr")]
 position = Vector2(167, 42)
