@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=4 uid="uid://cpecp3qi5iy6c"]
+[gd_scene load_steps=18 format=4 uid="uid://cpecp3qi5iy6c"]
 
 [ext_resource type="PackedScene" uid="uid://ctls2l24ivrad" path="res://scenes/player.tscn" id="1_kaimq"]
 [ext_resource type="Texture2D" uid="uid://c58vyqyv1oxyo" path="res://assets/sprites/TilesetFloor.png" id="2_gbiac"]
 [ext_resource type="Texture2D" uid="uid://cnu08bks67p4w" path="res://assets/sprites/TilesetNature.png" id="2_ogoc5"]
 [ext_resource type="Texture2D" uid="uid://cj7kt0jxct2at" path="res://assets/sprites/AnimatedWhiteFlower.png" id="3_hgiak"]
 [ext_resource type="Script" path="res://scripts/follow_camera.gd" id="5_vifo5"]
+[ext_resource type="PackedScene" uid="uid://ghksv31f2ew1" path="res://scenes/slime.tscn" id="6_km1kr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3omh"]
 texture = ExtResource("2_gbiac")
@@ -1942,3 +1943,26 @@ limit_right = 480
 limit_bottom = 288
 script = ExtResource("5_vifo5")
 groundTileMapLayer = NodePath("../../TileMaps/Ground")
+
+[node name="Slimes" type="Node2D" parent="."]
+
+[node name="Slime" parent="Slimes" node_paths=PackedStringArray("endPoint") instance=ExtResource("6_km1kr")]
+position = Vector2(167, 42)
+endPoint = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="Slimes/Slime"]
+position = Vector2(41, 30)
+
+[node name="Slime2" parent="Slimes" node_paths=PackedStringArray("endPoint") instance=ExtResource("6_km1kr")]
+position = Vector2(304, 32)
+endPoint = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="Slimes/Slime2"]
+position = Vector2(56, 0)
+
+[node name="Slime3" parent="Slimes" node_paths=PackedStringArray("endPoint") instance=ExtResource("6_km1kr")]
+position = Vector2(160, 88)
+endPoint = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="Slimes/Slime3"]
+position = Vector2(0, 32)
