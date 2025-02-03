@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3wtbxa1vbgui"]
+[gd_scene load_steps=3 format=3 uid="uid://b3wtbxa1vbgui"]
 
 [ext_resource type="Texture2D" uid="uid://dxjd1mb4xfe1j" path="res://assets/sprites/Heart.png" id="1_2gu2d"]
+[ext_resource type="Script" path="res://scripts/heart_hud.gd" id="1_f4k05"]
 
 [node name="Heart HUD" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(16, 13)
 offset_right = 16.0
 offset_bottom = 13.0
+script = ExtResource("1_f4k05")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -2)
