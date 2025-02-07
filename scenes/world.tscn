@@ -1,17 +1,17 @@
 [gd_scene load_steps=26 format=4 uid="uid://cpecp3qi5iy6c"]
 
-[ext_resource type="PackedScene" uid="uid://ctls2l24ivrad" path="res://scenes/player.tscn" id="1_kaimq"]
+[ext_resource type="PackedScene" uid="uid://ctls2l24ivrad" path="res://player/scenes/player.tscn" id="1_kaimq"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_wjlqg"]
 [ext_resource type="Texture2D" uid="uid://c58vyqyv1oxyo" path="res://assets/sprites/TilesetFloor.png" id="2_gbiac"]
 [ext_resource type="Texture2D" uid="uid://cnu08bks67p4w" path="res://assets/sprites/TilesetNature.png" id="2_ogoc5"]
 [ext_resource type="Texture2D" uid="uid://cj7kt0jxct2at" path="res://assets/sprites/AnimatedWhiteFlower.png" id="3_hgiak"]
-[ext_resource type="PackedScene" uid="uid://dbs24pavl0rx3" path="res://scenes/life_potion.tscn" id="5_1knq0"]
+[ext_resource type="PackedScene" uid="uid://dbs24pavl0rx3" path="res://collectables/scenes/life_potion.tscn" id="5_1knq0"]
 [ext_resource type="Script" path="res://scripts/follow_camera.gd" id="5_vifo5"]
-[ext_resource type="PackedScene" uid="uid://ghksv31f2ew1" path="res://scenes/slime.tscn" id="6_km1kr"]
-[ext_resource type="PackedScene" uid="uid://biayyxwh28iln" path="res://scenes/big_sword.tscn" id="6_o5nt3"]
-[ext_resource type="PackedScene" uid="uid://bj4hw22w61f82" path="res://scenes/hearts_container.tscn" id="7_lmq3n"]
+[ext_resource type="PackedScene" uid="uid://ghksv31f2ew1" path="res://enemies/scenes/slime.tscn" id="6_km1kr"]
+[ext_resource type="PackedScene" uid="uid://biayyxwh28iln" path="res://collectables/scenes/big_sword.tscn" id="6_o5nt3"]
+[ext_resource type="PackedScene" uid="uid://bj4hw22w61f82" path="res://hud/scenes/hearts_container.tscn" id="7_lmq3n"]
 [ext_resource type="Script" path="res://scripts/canvas_layer.gd" id="10_e4b24"]
-[ext_resource type="PackedScene" uid="uid://cts7l3g6nvvil" path="res://scenes/inventory_gui.tscn" id="11_rmry4"]
+[ext_resource type="PackedScene" uid="uid://cts7l3g6nvvil" path="res://gui/scenes/inventory_gui.tscn" id="11_rmry4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3omh"]
 texture = ExtResource("2_gbiac")

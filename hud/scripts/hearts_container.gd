@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-@onready var HeartHudClass = preload("res://scenes/heart_hud.tscn")
+@onready var HeartHudClass = preload("res://hud/scenes/heart_hud.tscn")
 
 
 # Called when the node enters the scene tree for the first time.

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bj4hw22w61f82"]
 
-[ext_resource type="Script" path="res://scripts/hearts_container.gd" id="1_jtia1"]
+[ext_resource type="Script" path="res://hud/scripts/hearts_container.gd" id="1_jtia1"]
 
 [node name="HeartsContainer" type="HBoxContainer"]
 layout_direction = 3

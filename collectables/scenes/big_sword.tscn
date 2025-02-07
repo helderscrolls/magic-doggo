@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://biayyxwh28iln"]
 
-[ext_resource type="PackedScene" uid="uid://bt62s60w3x2k1" path="res://scenes/collectable.tscn" id="1_64kah"]
-[ext_resource type="Script" path="res://scripts/big_sword.gd" id="2_m1jl0"]
+[ext_resource type="PackedScene" uid="uid://bt62s60w3x2k1" path="res://collectables/scenes/collectable.tscn" id="1_64kah"]
+[ext_resource type="Script" path="res://collectables/scripts/big_sword.gd" id="2_m1jl0"]
 [ext_resource type="Texture2D" uid="uid://dmfndkhqbixf" path="res://assets/sprites/BigSword.png" id="2_qu873"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r66qa"]
