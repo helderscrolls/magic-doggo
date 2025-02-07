@@ -7,3 +7,4 @@
 script = ExtResource("1_w5box")
 name = "BigSword"
 texture = ExtResource("2_g6fhc")
+maxAmountPerStack = 1
