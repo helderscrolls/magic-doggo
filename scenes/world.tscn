@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cpecp3qi5iy6c"]
+[gd_scene load_steps=26 format=4 uid="uid://cpecp3qi5iy6c"]
 
 [ext_resource type="PackedScene" uid="uid://ctls2l24ivrad" path="res://scenes/player.tscn" id="1_kaimq"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_wjlqg"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://ghksv31f2ew1" path="res://scenes/slime.tscn" id="6_km1kr"]
 [ext_resource type="PackedScene" uid="uid://biayyxwh28iln" path="res://scenes/big_sword.tscn" id="6_o5nt3"]
 [ext_resource type="PackedScene" uid="uid://bj4hw22w61f82" path="res://scenes/hearts_container.tscn" id="7_lmq3n"]
+[ext_resource type="Script" path="res://scripts/canvas_layer.gd" id="10_e4b24"]
+[ext_resource type="PackedScene" uid="uid://cts7l3g6nvvil" path="res://scenes/inventory_gui.tscn" id="11_rmry4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3omh"]
 texture = ExtResource("2_gbiac")
@@ -1989,7 +1991,19 @@ endPoint = NodePath("Marker2D")
 position = Vector2(0, 32)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-offset = Vector2(-5, 5)
-transform = Transform2D(1, 0, 0, 1, -5, 5)
+script = ExtResource("10_e4b24")
 
 [node name="HeartsContainer" parent="CanvasLayer" instance=ExtResource("7_lmq3n")]
+
+[node name="InventoryGui" parent="CanvasLayer" instance=ExtResource("11_rmry4")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -45.0
+offset_right = 69.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
