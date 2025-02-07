@@ -74,8 +74,5 @@ func hurtByEnemy(area):
 func knockback(enemyVelocity: Vector2):
 	var knockbackDirection = (enemyVelocity - velocity).normalized() * knockbackPower
 	velocity = knockbackDirection
-	print_debug('VELOCITY: ', velocity)
-	print_debug('POS BEFORE: ', position)
 	
 	move_and_slide()
-	print_debug('POS AFTER: ', position)
