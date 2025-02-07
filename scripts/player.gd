@@ -31,6 +31,13 @@ func _physics_process(delta: float) -> void:
 			if area.name == "HitBox":
 				hurtByEnemy(area)
 
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	if area.has_method("collect"):
+		area.collect()
+
+func _on_hurt_box_area_exited(area: Area2D) -> void:
+	pass # Replace with function body.
+
 func handleInput():
 	var moveDirection = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = moveDirection * speed
