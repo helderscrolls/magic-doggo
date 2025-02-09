@@ -24,7 +24,7 @@ var isAttacking: bool = false
 
 func _ready():
 	effects.play("RESET")
-	weapon.visible = false
+	weapon.disable()
 	
 func _physics_process(delta: float) -> void:
 	handleInput()
@@ -54,11 +54,11 @@ func handleInput():
 func attack():
 	animations.play("attack" + lastAnimDirection)
 	isAttacking = true
-	weapon.visible = true
+	weapon.enable()
 	
 	await animations.animation_finished
 	
-	weapon.visible = false
+	weapon.disable()
 	isAttacking = false
 	
 func updateAnimation():
