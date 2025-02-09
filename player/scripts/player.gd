@@ -9,6 +9,7 @@ signal healthChanged
 @onready var effects = $Effects
 @onready var hurtBox = $HurtBox
 @onready var hurtTimer = $HurtTimer
+@onready var weapon = $Weapon
 
 @export var maxHealth = 3
 @onready var currentHealth: int = maxHealth
@@ -49,7 +50,9 @@ func handleInput():
 	if Input.is_action_just_pressed("attack"):
 		animations.play("attack" + lastAnimDirection)
 		isAttacking = true
+		weapon.visible = true
 		await animations.animation_finished
+		weapon.visible = false
 		isAttacking = false
 	
 func updateAnimation():
