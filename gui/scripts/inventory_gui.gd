@@ -54,7 +54,10 @@ func close():
 	closed.emit()
 
 func onSlotClicked(slot):
-	if slot.isEmpty() and itemInHand:
+	if slot.isEmpty():
+		if !itemInHand:
+			return
+			
 		inserItemInSlot(slot)
 		return
 
