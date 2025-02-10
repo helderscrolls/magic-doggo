@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cpecp3qi5iy6c"]
+[gd_scene load_steps=27 format=4 uid="uid://cpecp3qi5iy6c"]
 
 [ext_resource type="PackedScene" uid="uid://ctls2l24ivrad" path="res://player/scenes/player.tscn" id="1_kaimq"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_wjlqg"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bj4hw22w61f82" path="res://hud/scenes/hearts_container.tscn" id="7_lmq3n"]
 [ext_resource type="Script" path="res://scripts/canvas_layer.gd" id="10_e4b24"]
 [ext_resource type="PackedScene" uid="uid://cts7l3g6nvvil" path="res://gui/scenes/inventory_gui.tscn" id="11_rmry4"]
+[ext_resource type="PackedScene" uid="uid://cr2knha3ttrpn" path="res://gui/scenes/hotbar.tscn" id="13_p7wsh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3omh"]
 texture = ExtResource("2_gbiac")
@@ -2008,6 +2009,19 @@ offset_right = 69.0
 offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("13_p7wsh")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -21.0
+offset_right = 58.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [connection signal="closed" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_closed"]
 [connection signal="opened" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_opened"]

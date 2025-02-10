@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cadoln4jjoipe"]
+
+[ext_resource type="Script" path="res://gui/scripts/hotbar_slot.gd" id="1_bxc66"]
+[ext_resource type="Texture2D" uid="uid://dhbr0na8qn1ld" path="res://assets/sprites/inventorySlot.png" id="2_5kv20"]
+[ext_resource type="PackedScene" uid="uid://cjbno6rd36f5i" path="res://gui/scenes/item_stack_gui.tscn" id="3_xcio0"]
+
+[node name="HotbarSlot" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+offset_right = 20.0
+offset_bottom = 20.0
+script = ExtResource("1_bxc66")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_5kv20")
+centered = false
+vframes = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="ItemStackGui" parent="CenterContainer" instance=ExtResource("3_xcio0")]
+layout_mode = 2
