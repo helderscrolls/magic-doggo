@@ -11,6 +11,7 @@ var isOpen: bool = false
 
 var itemInHand: ItemStackGui
 var oldIndex: int = -1
+var lockedInventory: bool = false
 
 func _ready() -> void:
 	connectSlots()
@@ -18,7 +19,7 @@ func _ready() -> void:
 	update()
 
 func _input(event: InputEvent) -> void:
-	if itemInHand and Input.is_action_just_pressed("rightClick"):
+	if itemInHand and !lockedInventory and Input.is_action_just_pressed("rightClick"):
 		putItemBack()
 
 	updateItemInHand()
@@ -58,6 +59,9 @@ func close():
 	closed.emit()
 
 func onSlotClicked(slot):
+	if lockedInventory:
+		return
+		
 	if slot.isEmpty():
 		if !itemInHand:
 			return
@@ -129,6 +133,7 @@ func updateItemInHand():
 	itemInHand.global_position = get_global_mouse_position() - itemInHand.size / 2
 
 func putItemBack():
+	lockedInventory = true
 	if oldIndex < 0:
 		var emptySlots = slots.filter(func (slot): return slot.isEmpty())
 		
@@ -138,4 +143,12 @@ func putItemBack():
 		oldIndex = emptySlots[0].index
 	
 	var targetSlot = slots[oldIndex]
+	
+	var tween = create_tween()
+	var targetPosition = targetSlot.global_position + targetSlot.size / 2
+	
+	tween.tween_property(itemInHand, "global_position", targetPosition, 0.2)
+	
+	await tween.finished
 	inserItemInSlot(targetSlot)
+	lockedInventory = false
