@@ -8,7 +8,6 @@ func update_to_slot(slot: InventorySlot) -> void:
 	if !slot.item:
 		item_stack_gui.visible = false
 		background_sprite.frame = 0
-
 		return
 	
 	item_stack_gui.inventorySlot = slot
