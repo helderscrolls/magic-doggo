@@ -7,6 +7,8 @@ signal use_item
 
 @export var slots: Array[InventorySlot]
 
+var index_of_last_used_item: int = -1
+
 func insert(item: InventoryItem):
 	var itemSlots = slots.filter(func(slot): return slot.item == item and slot.amount < item.maxAmountPerStack)
 
@@ -40,7 +42,15 @@ func use_item_at_index(index: int) -> void:
 		return
 	
 	var slot = slots[index]
+	index_of_last_used_item = index
+	
 	use_item.emit(slot.item)
+	
+func remove_last_used_item() -> void:
+	if index_of_last_used_item < 0:
+		return
+	
+	var slot = slots[index_of_last_used_item]
 	
 	if slot.amount > 1:
 		slot.amount -= 1
@@ -48,4 +58,4 @@ func use_item_at_index(index: int) -> void:
 		
 		return 
 	
-	remove_at_index(index)
+	remove_at_index(index_of_last_used_item)
