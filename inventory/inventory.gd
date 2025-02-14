@@ -3,6 +3,7 @@ extends Resource
 class_name Inventory
 
 signal updated
+signal use_item
 
 @export var slots: Array[InventorySlot]
 
@@ -39,6 +40,7 @@ func use_item_at_index(index: int) -> void:
 		return
 	
 	var slot = slots[index]
+	use_item.emit(slot.item)
 	
 	if slot.amount > 1:
 		slot.amount -= 1

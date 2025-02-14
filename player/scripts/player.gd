@@ -21,6 +21,7 @@ var isHurt: bool = false
 var isAttacking: bool = false
 
 func _ready():
+	inventory.use_item.connect(use_item)
 	effects.play("RESET")
 	weapon.disable()
 	
@@ -104,3 +105,12 @@ func knockback(enemyVelocity: Vector2):
 	velocity = knockbackDirection
 	
 	move_and_slide()
+
+func increase_health(amount: int) -> void:
+	currentHealth += amount
+	currentHealth = min(maxHealth, currentHealth)
+	
+	healthChanged.emit(currentHealth)
+	
+func use_item(item: InventoryItem) -> void:
+	item.use(self)
