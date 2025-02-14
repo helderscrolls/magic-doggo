@@ -1,7 +1,7 @@
 extends Camera2D
 
 @export var groundTileMapLayer: TileMapLayer
-@export var follow_node: Node2D
+@export var target_to_follow: Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,4 +15,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	global_position = follow_node.global_position
+	global_position = target_to_follow.global_position

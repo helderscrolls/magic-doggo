@@ -6,7 +6,7 @@ extends BaseScene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
-	follow_camera.follow_node = player
+	follow_camera.target_to_follow = player
 	
 	heartsContainer.setMaxHearts(player.maxHealth)
 	heartsContainer.updateHearts(player.currentHealth)

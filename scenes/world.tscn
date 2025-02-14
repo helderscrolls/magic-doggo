@@ -2574,7 +2574,7 @@ size = Vector2(14, 10)
 y_sort_enabled = true
 script = ExtResource("1_wjlqg")
 
-[node name="FollowCamera" type="Camera2D" parent="." node_paths=PackedStringArray("groundTileMapLayer", "follow_node")]
+[node name="FollowCamera" type="Camera2D" parent="." node_paths=PackedStringArray("groundTileMapLayer")]
 position = Vector2(575, 86)
 limit_left = 0
 limit_top = 0
@@ -2584,7 +2584,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("5_vifo5")
 groundTileMapLayer = NodePath("../TileMaps/Ground")
-follow_node = NodePath("../Player")
 
 [node name="TileMaps" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -2683,11 +2682,11 @@ offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="SceneTrigger" parent="." instance=ExtResource("15_a4c3e")]
+[node name="SceneTransitionTrigger" parent="." instance=ExtResource("15_a4c3e")]
 position = Vector2(576, 57)
-connected_scene = "house_interior"
+target_scene = "house_interior"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTransitionTrigger"]
 z_index = 1
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_m0g4m")
