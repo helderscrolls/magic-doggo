@@ -342,6 +342,7 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
+collision_layer = 9
 script = ExtResource("1_a5nlh")
 inventory = ExtResource("2_hbbu7")
 
