@@ -1,4 +1,4 @@
-class_name MarkerMovementAiC extends Node
+class_name MarkerMovementAiComponent extends Node
 
 @export var limit = 0.5
 @export var speed = 20

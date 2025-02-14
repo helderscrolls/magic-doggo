@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://enemies/scripts/slime.gd" id="1_8bkjq"]
 [ext_resource type="Texture2D" uid="uid://dqut85ib5qovv" path="res://assets/sprites/Slime.png" id="1_p2rf4"]
 [ext_resource type="Texture2D" uid="uid://ociegss4135y" path="res://assets/sprites/SmokeEffect.png" id="3_c0o3q"]
-[ext_resource type="Script" path="res://components/scripts/marker_movement_ai_C.gd" id="4_t7glg"]
-[ext_resource type="Script" path="res://components/scripts/hurt_box_C.gd" id="5_6t2oi"]
-[ext_resource type="Script" path="res://components/scripts/health_C.gd" id="6_gke5e"]
+[ext_resource type="Script" path="res://components/scripts/marker_movement_ai_Component.gd" id="4_t7glg"]
+[ext_resource type="Script" path="res://components/scripts/hurt_box_Component.gd" id="5_6t2oi"]
+[ext_resource type="Script" path="res://components/scripts/health_Component.gd" id="6_gke5e"]
 
 [sub_resource type="Animation" id="Animation_i5alv"]
 length = 0.001
@@ -364,17 +364,16 @@ shape = SubResource("CapsuleShape2D_kjku2")
 wait_time = 0.3
 one_shot = true
 
-[node name="MarkerMovementAiC" type="Node" parent="." node_paths=PackedStringArray("healthComponent")]
+[node name="MarkerMovementAiComponent" type="Node" parent="." node_paths=PackedStringArray("healthComponent")]
 script = ExtResource("4_t7glg")
 healthComponent = NodePath("../HealthComponent")
 
-[node name="HurtBoxC" type="Node" parent="." node_paths=PackedStringArray("area2D")]
+[node name="HurtBoxComponent" type="Node" parent="." node_paths=PackedStringArray("hurt_box")]
 script = ExtResource("5_6t2oi")
-area2D = NodePath("../HurtBox")
+hurt_box = NodePath("../HurtBox")
 
-[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurt_box_C")]
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurt_box_component")]
 script = ExtResource("6_gke5e")
-hurt_box_C = NodePath("../HurtBoxC")
+hurt_box_component = NodePath("../HurtBoxComponent")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
-[connection signal="died" from="HealthComponent" to="." method="is_dead"]
