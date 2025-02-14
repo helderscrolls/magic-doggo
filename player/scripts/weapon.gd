@@ -31,4 +31,4 @@ func add_weapon(new_weapon) -> void:
 		
 	weapon = new_weapon
 	add_child(new_weapon)
-	
+	disable()

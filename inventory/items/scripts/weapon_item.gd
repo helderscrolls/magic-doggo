@@ -9,4 +9,3 @@ func _init() -> void:
 
 func use(player: Player) -> void:
 	player.weapon.add_weapon(weapon)
-	player.weapon.disable()
