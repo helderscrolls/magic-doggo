@@ -39,6 +39,7 @@ func update():
 		var inventorySlot: InventorySlot = inventory.slots[i]
 		
 		if !inventorySlot.item:
+			slots[i].clear()
 			continue
 		
 		var itemStackGui: ItemStackGui = slots[i].itemStackGui
