@@ -8,4 +8,5 @@ func _init() -> void:
 	weapon = weapon_class.instantiate()
 
 func use(player: Player) -> void:
-	pass
+	player.weapon.add_weapon(weapon)
+	player.weapon.disable()

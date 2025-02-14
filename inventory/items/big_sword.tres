@@ -10,3 +10,4 @@ weapon_class = ExtResource("3_av4yn")
 name = "BigSword"
 texture = ExtResource("2_g6fhc")
 maxAmountPerStack = 1
+consumable = false

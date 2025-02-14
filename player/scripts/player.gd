@@ -115,6 +115,8 @@ func increase_health(amount: int) -> void:
 func use_item(item: InventoryItem) -> void:
 	if not item.can_be_used(self):
 		return
-		
+	
 	item.use(self)
-	inventory.remove_last_used_item()
+	
+	if item.consumable:
+		inventory.remove_last_used_item()
