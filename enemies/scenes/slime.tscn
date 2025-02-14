@@ -1,8 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://ghksv31f2ew1"]
+[gd_scene load_steps=17 format=3 uid="uid://ghksv31f2ew1"]
 
 [ext_resource type="Script" path="res://enemies/scripts/slime.gd" id="1_8bkjq"]
 [ext_resource type="Texture2D" uid="uid://dqut85ib5qovv" path="res://assets/sprites/Slime.png" id="1_p2rf4"]
 [ext_resource type="Texture2D" uid="uid://ociegss4135y" path="res://assets/sprites/SmokeEffect.png" id="3_c0o3q"]
+[ext_resource type="Script" path="res://components/scripts/marker_movement_ai_C.gd" id="4_t7glg"]
+[ext_resource type="Script" path="res://components/scripts/hurt_box_C.gd" id="5_6t2oi"]
+[ext_resource type="Script" path="res://components/scripts/health_C.gd" id="6_gke5e"]
 
 [sub_resource type="Animation" id="Animation_i5alv"]
 length = 0.001
@@ -350,7 +353,7 @@ shape = SubResource("CapsuleShape2D_48giy")
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -7)
@@ -361,4 +364,17 @@ shape = SubResource("CapsuleShape2D_kjku2")
 wait_time = 0.3
 one_shot = true
 
+[node name="MarkerMovementAiC" type="Node" parent="." node_paths=PackedStringArray("healthComponent")]
+script = ExtResource("4_t7glg")
+healthComponent = NodePath("../HealthComponent")
+
+[node name="HurtBoxC" type="Node" parent="." node_paths=PackedStringArray("area2D")]
+script = ExtResource("5_6t2oi")
+area2D = NodePath("../HurtBox")
+
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurt_box_C")]
+script = ExtResource("6_gke5e")
+hurt_box_C = NodePath("../HurtBoxC")
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="died" from="HealthComponent" to="." method="is_dead"]

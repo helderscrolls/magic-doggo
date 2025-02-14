@@ -2629,23 +2629,20 @@ speed = 50
 [node name="Slimes" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Slime" parent="Slimes" node_paths=PackedStringArray("endPoint") instance=ExtResource("6_km1kr")]
+[node name="Slime" parent="Slimes" instance=ExtResource("6_km1kr")]
 position = Vector2(167, 42)
-endPoint = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="Slimes/Slime"]
 position = Vector2(41, 30)
 
-[node name="Slime2" parent="Slimes" node_paths=PackedStringArray("endPoint") instance=ExtResource("6_km1kr")]
+[node name="Slime2" parent="Slimes" instance=ExtResource("6_km1kr")]
 position = Vector2(304, 32)
-endPoint = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="Slimes/Slime2"]
 position = Vector2(56, 0)
 
-[node name="Slime3" parent="Slimes" node_paths=PackedStringArray("endPoint") instance=ExtResource("6_km1kr")]
+[node name="Slime3" parent="Slimes" instance=ExtResource("6_km1kr")]
 position = Vector2(160, 88)
-endPoint = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="Slimes/Slime3"]
 position = Vector2(0, 32)
