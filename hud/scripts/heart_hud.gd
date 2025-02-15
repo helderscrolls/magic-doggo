@@ -1,19 +1,9 @@
 extends Panel
 
-@onready var sprite = $Sprite2D
+@onready var sprite: Sprite2D = $Sprite2D
 
+const MAX_HEART_FRAMES := 4  # Number of frames representing heart states (empty to full)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func update(wholeHeart: bool):
-	if wholeHeart:
-		sprite.frame = 4
-	else:
-		sprite.frame = 0
+# Updates the heart sprite frame based on the health fraction (0 to MAX_HEART_FRAMES).
+func update(fraction: int) -> void:
+	sprite.frame = clamp(fraction, 0, MAX_HEART_FRAMES)

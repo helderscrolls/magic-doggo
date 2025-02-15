@@ -9,7 +9,7 @@ signal healthChanged
 @onready var hurtTimer = $HurtTimer
 @onready var weapon = $Weapon
 
-@export var maxHealth = 3
+@export var maxHealth = 3*4
 @onready var currentHealth: int = maxHealth
 
 @export var knockbackPower: int = 500

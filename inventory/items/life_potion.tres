@@ -9,3 +9,4 @@ health_increase = 1
 name = "LifePotion"
 texture = ExtResource("2_06f3q")
 maxAmountPerStack = 10
+consumable = true
